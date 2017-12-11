@@ -2,10 +2,11 @@
 
 ## Need to haves;
 
-* Character wtih WASD movement
-* Enemies with fixed movement paths
-* Enemy vision represented by a cone
-* Player looses if they touch Line of Sight of enemies
+* Character wtih WASD Movement
+* Enemies with Fixed Movement Paths
+* Enemy Vision Represented by a Cone
+* Player Looses if They Touch Line of Sight of Enemies
+* Player Wins if They Reach the "Door"
 
 ## Nice to haves;
 
@@ -13,5 +14,10 @@
 * Sound FX
 * Nice Graphics
 * Particle FX
-* Level editor
-* 
+* Level Editor
+* Key to Unlock Door
+* Other Objectives
+* Other Enemie Types
+* Dynamic Light
+* Dynamic Background
+* Unlockable Player Characters
