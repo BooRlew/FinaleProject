@@ -13,7 +13,7 @@ class Char {
     movingLeft = false;
     movingRight = false;
 
-    charX = 100;
+    charX = DrawLevel.startX;
     charY = 100;
 
     charSize = cellSize;
@@ -41,7 +41,7 @@ class Char {
     stroke(0);
     fill(55, 230, 70);
 
-    rectMode(CENTER);
+    //rectMode(CENTER);
     rect(charX, charY, charSize, charSize);
   }
 

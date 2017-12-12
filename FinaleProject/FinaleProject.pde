@@ -1,53 +1,28 @@
-float charX, charY;
-float cellWidth, cellHeight;
-float gridDimension;
-
-
-int[][] grid;
-int cols, rows;
 int state;
 
 Char player;
+DrawLevel level;
+Enemy e1;
 
 void setup() {
   frameRate(144);
   size(800, 800);
 
-  initializeValues();
-  
+  //initializeValues();
+
   state = 0;
 
-
-  player = new Char(cellWidth);
+  level = new DrawLevel();
+  player = new Char(level.cellWidth);
+  e1 = new Enemy(level.cellWidth);
 }
 
 void draw() {
   background(255);
 
-  fill(0, 0);
-  stroke(0, 10);
-
-
-  rectMode(CORNER);
-  for (int x = 0; x < cols; x++) {
-    for (int y = 0; y < rows; y++) {
-      rect(x*cellWidth, y*cellWidth, cellWidth, cellHeight);
-    }
-  }
-
+  level.display();
+  e1.display();
   character();
-}
-
-void initializeValues() {
-  gridDimension = 30;
-
-  cellWidth = width/gridDimension;
-  cellHeight = height/gridDimension;
-  
-  println(cellWidth);
-
-  cols = int(width/cellWidth);
-  rows = int(height/cellHeight);
 }
 
 void character() {
