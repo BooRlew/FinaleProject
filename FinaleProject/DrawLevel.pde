@@ -6,6 +6,7 @@ class DrawLevel {
   float cellWidth, cellHeight;
   float gridDimension;
   float startX, startY;
+  float eStartX, eStartY;
 
   String levelToLoad;
 
@@ -22,16 +23,24 @@ class DrawLevel {
 
     cols = int(width/cellWidth);
     rows = int(height/cellHeight);
+
+    tiles = new char[cols][rows];
+
+    loadLevel();
+
     for (int x = 0; x < cols; x++) {
       for (int y = 0; y < rows; y++) {
-        if ( tiles[x][y] == 'S') {
-        startX = x;
-        startY = y;
+        if (tiles[x][y] == 'S') {
+          startX = x;
+          startY = y;
+        }
+        if (tiles[x][y] == '<'){
+          eStartX = x;
+          eStartY = y;
+          
         }
       }
     }
-
-    tiles = new char[cols][rows];
   }
 
   //behaviour
@@ -39,7 +48,7 @@ class DrawLevel {
     fill(0, 0);
     noStroke();
 
-    loadLevel();
+    //loadLevel();
 
     rectMode(CORNER);
     for (int x = 0; x < cols; x++) {

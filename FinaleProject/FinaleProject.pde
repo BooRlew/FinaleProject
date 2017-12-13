@@ -13,21 +13,26 @@ void setup() {
   state = 0;
 
   level = new DrawLevel();
-  player = new Char(level.cellWidth);
-  e1 = new Enemy(level.cellWidth);
+  player = new Char(level);
+  e1 = new Enemy(level);
 }
 
 void draw() {
   background(255);
 
   level.display();
-  e1.display();
+  enemy();
   character();
 }
 
 void character() {
   player.move();
   player.display();
+}
+
+void enemy(){
+  e1.move(level);
+  e1.display();
 }
 
 void keyPressed() {
