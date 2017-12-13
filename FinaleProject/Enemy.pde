@@ -1,12 +1,12 @@
 class Enemy {
-  //data
+  //data-----------------------------------------------------
   boolean movingUp, movingDown, movingLeft, movingRight;
 
   float charX, charY;
   float charSize;
   float charSpeed;
 
-  //constructor
+  //constructor-----------------------------------------------------
   Enemy(DrawLevel currentLevel) {
     movingUp = false;
     movingDown = false;
@@ -17,17 +17,10 @@ class Enemy {
     charY = currentLevel.eStartY * currentLevel.cellHeight;
 
     charSize = currentLevel.cellWidth;
-    charSpeed = 1.3;
-
-    for (int x = 0; x < currentLevel.cols; x++) {
-      for (int y = 0; y < currentLevel.rows; y++) {
-        if (currentLevel.tiles[x][y] == 's') {
-        }
-      }
-    }
+    charSpeed = 1.7;
   }  
 
-  //behavior
+  //behavior-----------------------------------------------------
 
   void display() {
     stroke(0);

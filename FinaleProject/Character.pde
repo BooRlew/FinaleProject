@@ -1,12 +1,12 @@
 class Char {
-  //data
+  //data-----------------------------------------------------
   boolean movingUp, movingDown, movingLeft, movingRight;
 
   float charX, charY;
   float charSize;
   float charSpeed;
 
-  //constructor
+  //constructor-----------------------------------------------------
   Char(DrawLevel currentLevel) {
     movingUp = false;
     movingDown = false;
@@ -20,7 +20,7 @@ class Char {
     charSpeed = 0.95;
   }
 
-  //behaviour
+  //behaviour-----------------------------------------------------
   void move() {
     if (movingUp) {
       charY -= charSpeed;

@@ -3,6 +3,7 @@ int state;
 Char player;
 DrawLevel level;
 Enemy e1;
+Key Key;
 
 void setup() {
   frameRate(144);
@@ -15,6 +16,7 @@ void setup() {
   level = new DrawLevel();
   player = new Char(level);
   e1 = new Enemy(level);
+  Key = new Key(level, player);
 }
 
 void draw() {
@@ -22,6 +24,7 @@ void draw() {
 
   level.display();
   enemy();
+  Key.display();
   character();
 }
 
@@ -30,7 +33,7 @@ void character() {
   player.display();
 }
 
-void enemy(){
+void enemy() {
   e1.move(level);
   e1.display();
 }

@@ -1,5 +1,5 @@
 class DrawLevel {
-  //data
+  //data-----------------------------------------------------
   int[][] grid;
   int cols, rows;
 
@@ -7,13 +7,14 @@ class DrawLevel {
   float gridDimension;
   float startX, startY;
   float eStartX, eStartY;
+  float keyX, keyY;
 
   String levelToLoad;
 
   char tileType;
   char[][] tiles;
 
-  //constructor
+  //constructor-----------------------------------------------------
   DrawLevel() {
 
     gridDimension = 29;
@@ -38,12 +39,16 @@ class DrawLevel {
           eStartX = x;
           eStartY = y;
           
+        } 
+        if ( tiles[x][y] == 'K') {
+          keyX = x;
+          keyY = y;
         }
       }
     }
   }
 
-  //behaviour
+  //behaviour-----------------------------------------------------
   void display() {
     fill(0, 0);
     noStroke();
@@ -66,10 +71,11 @@ class DrawLevel {
           fill(200);
         } else if ( tiles[x][y] == 'F') {
           fill(100);
-        } else if ( tiles[x][y] == 'K') {
-          stroke(0);
-          fill(200, 200, 0);
-        } else {
+        } //else if ( tiles[x][y] == 'K') {
+          //stroke(0);
+          //fill(200, 200, 0);
+        //} 
+        else {
           fill(255, 0);
         }
         rect(x*cellWidth, y*cellWidth, cellWidth + 1, cellHeight + 1);
