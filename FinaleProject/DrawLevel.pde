@@ -78,13 +78,13 @@ class DrawLevel {
         else {
           fill(255, 0);
         }
-        rect(x*cellWidth, y*cellWidth, cellWidth + 1, cellHeight + 1);
+        rect(x*cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1);
       }
     }
   }
 
   void loadLevel() {
-    levelToLoad = "Level/lvl-1.txt";
+    levelToLoad = "Level/lvl-2.txt";
 
     String lines[] = loadStrings(levelToLoad);
     for (int y=0; y < gridDimension; y++) {

@@ -3,7 +3,7 @@ class Enemy {
   boolean movingUp, movingDown, movingLeft, movingRight;
 
   float charX, charY;
-  float charSize;
+  float charWidth, charHeight;
   float charSpeed;
 
   //constructor-----------------------------------------------------
@@ -16,8 +16,10 @@ class Enemy {
     charX = currentLevel.eStartX * currentLevel.cellWidth;
     charY = currentLevel.eStartY * currentLevel.cellHeight;
 
-    charSize = currentLevel.cellWidth;
-    charSpeed = 1.7;
+    charWidth = currentLevel.cellWidth;
+    charHeight = currentLevel.cellHeight;
+    
+    charSpeed = 0.2;
   }  
 
   //behavior-----------------------------------------------------
@@ -27,7 +29,7 @@ class Enemy {
     fill(255, 10, 23);
 
     rectMode(CORNER);
-    rect(charX, charY, charSize, charSize);
+    rect(charX, charY, charWidth, charHeight);
   }
 
   void move(DrawLevel currentLevel) {
@@ -42,22 +44,22 @@ class Enemy {
     }
     for (int x = 0; x < currentLevel.cols; x++) {
       for (int y = 0; y < currentLevel.rows; y++) {
-        if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '<') {
+        if (currentLevel.tiles[floor(charX/currentLevel.cellWidth)][floor(charY/currentLevel.cellHeight)] == '<') {
           movingUp = false;
           movingDown = false;
           movingLeft = true;
           movingRight = false;
-        }else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '^') {
+        }else if (currentLevel.tiles[floor(charX/currentLevel.cellWidth) + 1][ceil(charY/currentLevel.cellHeight)] == '^') {
           movingUp = true;
           movingDown = false;
           movingLeft = false;
           movingRight = false;
-        }else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '>') {
+        }else if (currentLevel.tiles[floor(charX/currentLevel.cellWidth) + 1][ceil(charY/currentLevel.cellHeight)] == '>') {
           movingUp = false;
           movingDown = false;
           movingLeft = false;
           movingRight = true;
-        }else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == 'v') {
+        }else if (currentLevel.tiles[floor(charX/currentLevel.cellWidth)][ceil((charY/currentLevel.cellHeight))] == 'v') {
           movingUp = false;
           movingDown = true;
           movingLeft = false;
@@ -65,5 +67,12 @@ class Enemy {
         }
       }
     }
+    
+    
+    fill(0);
+    println(floor(charX/currentLevel.cellWidth), floor(charY/currentLevel.cellHeight));
+    
+    //println(charX);
+    //println(charY);
   }
 }

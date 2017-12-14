@@ -3,7 +3,7 @@ class Char {
   boolean movingUp, movingDown, movingLeft, movingRight;
 
   float charX, charY;
-  float charSize;
+  float charWidth, charHeight;
   float charSpeed;
 
   //constructor-----------------------------------------------------
@@ -16,24 +16,45 @@ class Char {
     charX = currentLevel.startX * currentLevel.cellWidth;
     charY = currentLevel.startY * currentLevel.cellHeight;
 
-    charSize = currentLevel.cellWidth;
+    charWidth = currentLevel.cellWidth;
+    charHeight = currentLevel.cellHeight;
+    
     charSpeed = 0.95;
   }
 
   //behaviour-----------------------------------------------------
   void move() {
     if (movingUp) {
-      charY -= charSpeed;
+      if (movingLeft || movingRight) {
+        charY -= charSpeed * 0.75; //- charSpeed/4;
+      } else {
+        charY -= charSpeed;
+      }
     } 
     if (movingDown) {
-      charY += charSpeed;
+      if (movingLeft || movingRight) {
+        charY += charSpeed * 0.75; //- charSpeed/4;
+      } else {
+        charY += charSpeed;
+      }
     } 
     if (movingLeft) {
-      charX -= charSpeed;
+      if (movingUp || movingDown) {
+        charX -= charSpeed * 0.75; //- charSpeed/4;
+      } else {
+        charX -= charSpeed;
+      }
     } 
     if (movingRight) {
-      charX += charSpeed;
+      if (movingUp || movingDown) {
+        charX += charSpeed * 0.75; //- charSpeed/4;
+      } else {
+        charX += charSpeed;
+      }
     }
+    //println(charX);
+    //println(charY);
+    
     collision();
   }
 
@@ -42,7 +63,7 @@ class Char {
     fill(55, 230, 70);
 
     rectMode(CORNER);
-    rect(charX, charY, charSize, charSize);
+    rect(charX, charY, charWidth, charHeight);
   }
 
   void collision() {

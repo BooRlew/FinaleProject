@@ -8,6 +8,7 @@ Key Key;
 void setup() {
   frameRate(144);
   size(800, 800);
+  //fullScreen();
 
   //initializeValues();
 

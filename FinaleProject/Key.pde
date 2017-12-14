@@ -32,7 +32,7 @@ class Key {
     }
     rect(keyX, keyY, keyWidth, keyHeight);
     
-    println(isPicked);
+    //println(isPicked);
   }
 
   void detectPick() {
