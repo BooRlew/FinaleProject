@@ -17,7 +17,7 @@ class DrawLevel {
   //constructor-----------------------------------------------------
   DrawLevel() {
 
-    gridDimension = 29;
+    gridDimension = 30;
 
     cellWidth = width/gridDimension;
     cellHeight = height/gridDimension;

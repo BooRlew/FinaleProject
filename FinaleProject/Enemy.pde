@@ -18,8 +18,8 @@ class Enemy {
 
     charWidth = currentLevel.cellWidth;
     charHeight = currentLevel.cellHeight;
-    
-    charSpeed = 0.2;
+
+    charSpeed = 1;
   }  
 
   //behavior-----------------------------------------------------
@@ -44,34 +44,45 @@ class Enemy {
     }
     for (int x = 0; x < currentLevel.cols; x++) {
       for (int y = 0; y < currentLevel.rows; y++) {
-        if (currentLevel.tiles[floor(charX/currentLevel.cellWidth)][floor(charY/currentLevel.cellHeight)] == '<') {
+        if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '<') {
           movingUp = false;
           movingDown = false;
           movingLeft = true;
           movingRight = false;
-        }else if (currentLevel.tiles[floor(charX/currentLevel.cellWidth) + 1][ceil(charY/currentLevel.cellHeight)] == '^') {
+
+          //println(floor(charX/currentLevel.cellWidth), floor(charY/currentLevel.cellHeight));
+          
+        } else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '^') {
           movingUp = true;
           movingDown = false;
           movingLeft = false;
           movingRight = false;
-        }else if (currentLevel.tiles[floor(charX/currentLevel.cellWidth) + 1][ceil(charY/currentLevel.cellHeight)] == '>') {
+
+          //println(floor(charX/currentLevel.cellWidth), floor(charY/currentLevel.cellHeight));
+          
+        } else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '>') {
           movingUp = false;
           movingDown = false;
           movingLeft = false;
           movingRight = true;
-        }else if (currentLevel.tiles[floor(charX/currentLevel.cellWidth)][ceil((charY/currentLevel.cellHeight))] == 'v') {
+
+          //println(floor(charX/currentLevel.cellWidth), floor(charY/currentLevel.cellHeight));
+          
+        } else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY/currentLevel.cellHeight))] == 'v') {
           movingUp = false;
           movingDown = true;
           movingLeft = false;
           movingRight = false;
+          
+          //println(floor(charX/currentLevel.cellWidth), floor(charY/currentLevel.cellHeight));
         }
       }
     }
-    
-    
-    fill(0);
-    println(floor(charX/currentLevel.cellWidth), floor(charY/currentLevel.cellHeight));
-    
+
+
+    //fill(0);
+    //println(floor(charX/currentLevel.cellWidth), ceil(charY/currentLevel.cellHeight));
+
     //println(charX);
     //println(charY);
   }

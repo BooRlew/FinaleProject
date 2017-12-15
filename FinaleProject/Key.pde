@@ -23,7 +23,6 @@ class Key {
   //behaviour-----------------------------------------------------
   void display() {
     detectPick();
-
     if (!isPicked) {
       rectMode(CORNER);
       fill(200, 200, 0);
@@ -31,7 +30,7 @@ class Key {
       fill(0, 0);
     }
     rect(keyX, keyY, keyWidth, keyHeight);
-    
+
     //println(isPicked);
   }
 
