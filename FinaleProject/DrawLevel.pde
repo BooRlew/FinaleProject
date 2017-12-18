@@ -17,7 +17,7 @@ class DrawLevel {
   //constructor-----------------------------------------------------
   DrawLevel() {
 
-    gridDimension = 30;
+    gridDimension = 29;
 
     cellWidth = width/gridDimension;
     cellHeight = height/gridDimension;
@@ -84,7 +84,7 @@ class DrawLevel {
   }
 
   void loadLevel() {
-    levelToLoad = "Level/lvl-2.txt";
+    levelToLoad = "Level/lvl-1.txt";
 
     String lines[] = loadStrings(levelToLoad);
     for (int y=0; y < gridDimension; y++) {

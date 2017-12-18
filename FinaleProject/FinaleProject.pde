@@ -6,7 +6,7 @@ Enemy e1;
 Key Key;
 
 void setup() {
-  //frameRate(144);
+  frameRate(144);
   size(800, 800);
   //fullScreen();
 
@@ -30,7 +30,7 @@ void draw() {
 }
 
 void character() {
-  player.move();
+  player.move(level);
   player.display();
 }
 
