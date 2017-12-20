@@ -7,22 +7,19 @@ class Key {
   boolean isPicked;
 
   //constructor-----------------------------------------------------
-  Key(DrawLevel currentLevel, Char thePlayer) {
-    keyX = currentLevel.keyX * currentLevel.cellWidth;
-    keyY = currentLevel.keyY * currentLevel.cellHeight;
-
-    playerX = thePlayer.charX;
-    playerY = thePlayer.charY;
-
+  Key(DrawLevel currentLevel) {
     keyWidth = currentLevel.cellWidth;
     keyHeight = currentLevel.cellHeight;
 
+    keyX = currentLevel.keyX * keyWidth;
+    keyY = currentLevel.keyY * keyHeight;
+    
     isPicked = false;
   }
 
   //behaviour-----------------------------------------------------
-  void display() {
-    detectPick();
+  void display(Char thePlayer) {
+    detectPick(thePlayer);
     if (!isPicked) {
       rectMode(CORNER);
       fill(200, 200, 0);
@@ -30,12 +27,10 @@ class Key {
       fill(0, 0);
     }
     rect(keyX, keyY, keyWidth, keyHeight);
-
-    //println(isPicked);
   }
 
-  void detectPick() {
-    if (playerX > keyX && playerX < keyX + keyWidth  &&  playerY > keyY && playerY < keyY + keyHeight) {
+  void detectPick(Char thePlayer) {
+    if ((thePlayer.charX > keyX && thePlayer.charX < keyX + keyWidth  &&  thePlayer.charY > keyY && thePlayer.charY < keyY + keyHeight)   |   (thePlayer.charX + keyWidth > keyX && thePlayer.charX + keyWidth < keyX + keyWidth  &&  thePlayer.charY + keyHeight > keyY && thePlayer.charY + keyHeight < keyY + keyHeight)   |   (thePlayer.charX > keyX && thePlayer.charX < keyX + keyWidth  &&  thePlayer.charY + keyHeight > keyY && thePlayer.charY + keyHeight < keyY + keyHeight)   |   (thePlayer.charX + keyWidth > keyX && thePlayer.charX + keyWidth < keyX + keyWidth  &&  thePlayer.charY > keyY && thePlayer.charY < keyY + keyHeight)) {
       isPicked = true;
     }
   }

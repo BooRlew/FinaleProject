@@ -8,6 +8,7 @@ class DrawLevel {
   float startX, startY;
   float eStartX, eStartY;
   float keyX, keyY;
+  float exitX, exitY;
 
   String levelToLoad;
 
@@ -35,14 +36,17 @@ class DrawLevel {
           startX = x;
           startY = y;
         }
-        if (tiles[x][y] == '<'){
+        if (tiles[x][y] == '<') {
           eStartX = x;
           eStartY = y;
-          
         } 
-        if ( tiles[x][y] == 'K') {
+        if (tiles[x][y] == 'K') {
           keyX = x;
           keyY = y;
+        }
+        if(tiles[x][y] == 'F') {
+          exitX = x;
+          exitY = y;
         }
       }
     }
@@ -52,8 +56,6 @@ class DrawLevel {
   void display() {
     fill(0, 0);
     noStroke();
-
-    //loadLevel();
 
     rectMode(CORNER);
     for (int x = 0; x < cols; x++) {
@@ -71,11 +73,7 @@ class DrawLevel {
           fill(200);
         } else if ( tiles[x][y] == 'F') {
           fill(100);
-        } //else if ( tiles[x][y] == 'K') {
-          //stroke(0);
-          //fill(200, 200, 0);
-        //} 
-        else {
+        } else {
           fill(255, 0);
         }
         rect(x*cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1);

@@ -5,7 +5,6 @@ class Enemy {
   float charX, charY;
   float charWidth, charHeight;
   float charSpeed;
-  int waitTime, timeTurned;
 
   //constructor-----------------------------------------------------
   Enemy(DrawLevel currentLevel) {
@@ -16,11 +15,6 @@ class Enemy {
 
     charX = currentLevel.eStartX * currentLevel.cellWidth;
     charY = currentLevel.eStartY * currentLevel.cellHeight;
-
-    //println(currentLevel.cellWidth);
-
-    waitTime = 1127;
-    timeTurned= 9999;
 
     charWidth = currentLevel.cellWidth;
     charHeight = currentLevel.cellHeight;
@@ -51,57 +45,36 @@ class Enemy {
     }
     for (int x = 0; x < currentLevel.cols; x++) {
       for (int y = 0; y < currentLevel.rows; y++) {
+
+        //turn left
         if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '<') {
           movingUp = false;
           movingDown = false;
           movingLeft = true;
           movingRight = false;
 
-          //println(int(charX/currentLevel.cellWidth), int(charY/currentLevel.cellHeight));
+          //turn up
         } else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '^') {
-          //timeTurned = millis();
+          movingUp = true;
+          movingDown = false;
+          movingLeft = false;
+          movingRight = false;
 
-          //if (millis() >= timeTurned + waitTime) {
-            
-            movingUp = true;
-            movingDown = false;
-            movingLeft = false;
-            movingRight = false;
-          //}
-
-          //println(int(charX/currentLevel.cellWidth), int(charY/currentLevel.cellHeight));
+          //turn right
         } else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '>') {
           movingUp = false;
           movingDown = false;
           movingLeft = false;
           movingRight = true;
 
-          //println(int(charX/currentLevel.cellWidth), int(charY/currentLevel.cellHeight));
+          //turn down (for what)
         } else if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY/currentLevel.cellHeight))] == 'v') {
           movingUp = false;
           movingDown = true;
           movingLeft = false;
           movingRight = false;
-
-          //println(int(charX/currentLevel.cellWidth), int(charY/currentLevel.cellHeight));
         }
-        //if (millis() >= timeTurned + waitTime) {
-
-        //  movingUp = true;
-        //  movingDown = false;
-        //  movingLeft = false;
-        //  movingRight = false;
-        //}
       }
     }
-
-
-
-
-    //fill(0);
-    //println(floor(charX/currentLevel.cellWidth), ceil(charY/currentLevel.cellHeight));
-
-    //println(charX);
-    //println(charY);
   }
 }

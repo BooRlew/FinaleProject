@@ -4,6 +4,7 @@ Char player;
 DrawLevel level;
 Enemy e1;
 Key Key;
+Exit exit;
 
 void setup() {
   frameRate(144);
@@ -17,7 +18,8 @@ void setup() {
   level = new DrawLevel();
   player = new Char(level);
   e1 = new Enemy(level);
-  Key = new Key(level, player);
+  Key = new Key(level);
+  exit = new Exit(level);
 }
 
 void draw() {
@@ -25,7 +27,7 @@ void draw() {
 
   level.display();
   enemy();
-  Key.display();
+  Key.display(player);
   character();
 }
 
