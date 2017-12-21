@@ -22,6 +22,8 @@ class DrawLevel {
 
     cellWidth = width/gridDimension;
     cellHeight = height/gridDimension;
+    
+    println(cellWidth);
 
     cols = int(width/cellWidth);
     rows = int(height/cellHeight);
@@ -71,8 +73,6 @@ class DrawLevel {
           fill(50);
         } else if ( tiles[x][y] == 'S') {
           fill(200);
-        } else if ( tiles[x][y] == 'F') {
-          fill(100);
         } else {
           fill(255, 0);
         }

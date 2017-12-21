@@ -1,10 +1,12 @@
 class Char {
   //data-----------------------------------------------------
-  boolean movingUp, movingDown, movingLeft, movingRight;
+  boolean movingUp, movingDown, movingLeft, movingRight, isSprint;
 
   float charX, charY;
   float charWidth, charHeight;
-  float charSpeed;
+  float charSpeed, tempSpeed;
+  
+  int sprintTime;
 
   //constructor-----------------------------------------------------
   Char(DrawLevel currentLevel) {
@@ -12,6 +14,7 @@ class Char {
     movingDown = false;
     movingLeft = false;
     movingRight = false;
+    isSprint = false;
 
     charX = currentLevel.startX * currentLevel.cellWidth;
     charY = currentLevel.startY * currentLevel.cellHeight;
@@ -20,10 +23,24 @@ class Char {
     charHeight = currentLevel.cellHeight;
 
     charSpeed = 0.95;
+    tempSpeed = charSpeed;
+    
+    sprintTime = 100;
   }
 
   //behaviour-----------------------------------------------------
   void move(DrawLevel currentLevel) {
+    if (isSprint && sprintTime >= 0){
+      charSpeed *= 2.2;
+      
+      
+      if (millis() % 5 == 0){
+        sprintTime --; 
+      }
+    }
+    
+    //println(sprintTime);
+    
     if (movingUp) {
       if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '-'   |   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+'   |   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
       } else {
@@ -70,6 +87,8 @@ class Char {
     }
 
     collision();
+    
+    charSpeed = tempSpeed;
   }
 
   void display() {

@@ -5,6 +5,7 @@ DrawLevel level;
 Enemy e1;
 Key Key;
 Exit exit;
+SprintMeter sprint;
 
 void setup() {
   frameRate(144);
@@ -20,20 +21,29 @@ void setup() {
   e1 = new Enemy(level);
   Key = new Key(level);
   exit = new Exit(level);
+  sprint = new SprintMeter(player);
 }
 
 void draw() {
   background(255);
 
+  finish();
   level.display();
-  enemy();
   Key.display(player);
+  enemy();
   character();
+}
+
+void finish(){
+  exit.display(player, Key);
+  
 }
 
 void character() {
   player.move(level);
   player.display();
+  
+  sprint.display(player);
 }
 
 void enemy() {
@@ -54,6 +64,11 @@ void keyPressed() {
   if (key == 'a' || key == 'A') {
     player.movingLeft = true;
   }
+  if (key == CODED) {
+    if (keyCode == SHIFT){
+      player.isSprint = true; 
+    }
+  }
 }
 
 void keyReleased() {
@@ -68,5 +83,10 @@ void keyReleased() {
   }
   if (key == 'a' || key == 'A') {
     player.movingLeft = false;
+  }
+  if (key == CODED) {
+    if (keyCode == SHIFT){
+      player.isSprint = false; 
+    }
   }
 }

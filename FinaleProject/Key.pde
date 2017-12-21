@@ -13,12 +13,14 @@ class Key {
 
     keyX = currentLevel.keyX * keyWidth;
     keyY = currentLevel.keyY * keyHeight;
-    
+
     isPicked = false;
   }
 
   //behaviour-----------------------------------------------------
   void display(Char thePlayer) {
+    stroke(0);
+    
     detectPick(thePlayer);
     if (!isPicked) {
       rectMode(CORNER);
