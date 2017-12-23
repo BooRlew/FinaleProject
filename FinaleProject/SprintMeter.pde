@@ -1,12 +1,12 @@
 class SprintMeter {
-  //data
+  //data---------------------------------------------------------------
   float rectX, rectY, rectHeight, rectWidth;
 
   float sprintTime, sprintBar;
 
   PImage bar;
 
-  //constructor
+  //constructor--------------------------------------------------------
   SprintMeter(Char sprintLeft) {
     bar = loadImage("bar.jpg");
     sprintTime = sprintLeft.sprintTime;
@@ -19,7 +19,7 @@ class SprintMeter {
     //bar = image("bar.jpg", rectX, rectY, rectWidth, rectHeight);
   }
 
-  //behaviour
+  //behaviour----------------------------------------------------------
   void display(Char sprintLeft) {
     sprintBar = map(sprintLeft.sprintTime, 0, 100, rectHeight, 0); 
 

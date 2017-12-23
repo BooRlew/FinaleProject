@@ -42,7 +42,8 @@ class Char {
     //println(sprintTime);
     
     if (movingUp) {
-      if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '-'   |   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+'   |   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
+      if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '-'   ||   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+'   ||   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
+        charY += charSpeed;
       } else {
 
         if (movingLeft || movingRight) {
@@ -53,7 +54,8 @@ class Char {
       }
     } 
     if (movingDown) {
-      if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '-'   |   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+'   |   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+') {
+      if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '-'   ||   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+'   ||   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+') {
+        charY -= charSpeed;
       } else {
 
         if (movingLeft || movingRight) {
@@ -64,7 +66,8 @@ class Char {
       }
     } 
     if (movingLeft) {
-      if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '|'   |   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+'   |   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
+      if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '|'   ||   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+'   ||   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
+        charX += charSpeed;
       } else {
 
         if (movingUp || movingDown) {
@@ -75,7 +78,8 @@ class Char {
       }
     } 
     if (movingRight) {
-      if (currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '|'   |   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+'   |   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
+      if (currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '|'   ||   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int((charY + currentLevel.cellHeight)/currentLevel.cellHeight)] == '+'   ||   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
+        charX -= charSpeed;
       } else {
 
         if (movingUp || movingDown) {

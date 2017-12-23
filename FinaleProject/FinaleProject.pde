@@ -6,6 +6,7 @@ Enemy e1;
 Key Key;
 Exit exit;
 SprintMeter sprint;
+DrawLOS LoS;
 
 void setup() {
   frameRate(144);
@@ -22,6 +23,7 @@ void setup() {
   Key = new Key(level);
   exit = new Exit(level);
   sprint = new SprintMeter(player);
+  LoS = new DrawLOS();
 }
 
 void draw() {
@@ -49,6 +51,8 @@ void character() {
 void enemy() {
   e1.move(level);
   e1.display();
+  
+  LoS.display();
 }
 
 void keyPressed() {
