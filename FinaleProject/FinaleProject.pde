@@ -2,7 +2,7 @@ int state;
 
 Char player;
 DrawLevel level;
-Enemy e1;
+Enemy enemy;
 Key Key;
 Exit exit;
 SprintMeter sprint;
@@ -19,7 +19,7 @@ void setup() {
 
   level = new DrawLevel();
   player = new Char(level);
-  e1 = new Enemy(level);
+  enemy = new Enemy(level);
   Key = new Key(level);
   exit = new Exit(level);
   sprint = new SprintMeter(player);
@@ -49,10 +49,11 @@ void character() {
 }
 
 void enemy() {
-  e1.move(level);
-  e1.display();
+  enemy.move(level);
+  enemy.display();
   
-  LoS.display();
+  LoS.direction(enemy);
+  LoS.display(enemy);
 }
 
 void keyPressed() {
