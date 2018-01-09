@@ -39,7 +39,7 @@ class DrawLOS {
 
       rotate (radians(j * 3 + 110));
 
-      line(0, 0, 200, 200);
+      line(0, 0, 250, 250);
 
       popMatrix();
     }
