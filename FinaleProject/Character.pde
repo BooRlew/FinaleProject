@@ -39,8 +39,6 @@ class Char {
       }
     }
     
-    //println(sprintTime);
-    
     if (movingUp) {
       if (currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '-'   ||   currentLevel.tiles[int((charX + currentLevel.cellWidth)/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+'   ||   currentLevel.tiles[int(charX/currentLevel.cellWidth)][int(charY/currentLevel.cellHeight)] == '+') {
         charY += charSpeed;

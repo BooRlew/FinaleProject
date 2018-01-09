@@ -37,7 +37,6 @@ class DrawLOS {
     for (float j = 0; j < total - 1; j++) {
       pushMatrix();
 
-      //translate(theEnemy.charX + theEnemy.charWidth/2, theEnemy.charY + theEnemy.charHeight/2);
       rotate (radians(j * 3 + 110));
 
       line(0, 0, 200, 200);
