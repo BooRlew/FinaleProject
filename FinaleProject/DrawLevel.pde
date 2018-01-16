@@ -3,6 +3,11 @@ class DrawLevel {
   int[][] grid;
   int cols, rows;
 
+  float[][][][] northSide;
+  float[][][][] southSide;
+  float[][][][] eastSide;
+  float[][][][] westSide;
+
   float cellWidth, cellHeight;
   float gridDimension;
   float startX, startY;
@@ -22,13 +27,18 @@ class DrawLevel {
 
     cellWidth = width/gridDimension;
     cellHeight = height/gridDimension;
-    
+
     println(cellWidth);
 
     cols = int(width/cellWidth);
     rows = int(height/cellHeight);
 
     tiles = new char[cols][rows];
+    
+    northSide = new float[cols][rows][cols][rows];
+    southSide = new float[cols][rows][cols][rows];
+    eastSide = new float[cols][rows][cols][rows];
+    westSide = new float[cols][rows][cols][rows];
 
     loadLevel();
 
@@ -46,7 +56,7 @@ class DrawLevel {
           keyX = x;
           keyY = y;
         }
-        if(tiles[x][y] == 'F') {
+        if (tiles[x][y] == 'F') {
           exitX = x;
           exitY = y;
         }
@@ -65,6 +75,10 @@ class DrawLevel {
         noStroke();
         if (tiles[x][y] == '|') {
           fill(0);
+          //-----------------------------------------------------------------------------------------------------
+                                               //HELP NEEDED
+          //-----------------------------------------------------------------------------------------------------
+          northSide[x*cellWidth][y*cellHeight][x*cellWidth + cellWidth][y*cellHeight];
         } else if ( tiles[x][y] == '-') {
           fill(80);
         } else if ( tiles[x][y] == '=') {
