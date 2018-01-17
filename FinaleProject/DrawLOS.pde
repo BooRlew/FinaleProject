@@ -10,12 +10,10 @@ class DrawLOS {
   ArrayList<Line> theLines = new ArrayList<Line>();
 
   int LOSdirection;
-  
-  //boolean isCaught = false;
   //constructor----------------------------------------
 
   DrawLOS() {
-    for (int i=0; i < 100; i++) {
+    for (int i=0; i < 20; i++) {
       theLines.add( new Line() );
     }
     LOSdirection = 2;
@@ -39,17 +37,10 @@ class DrawLOS {
     for (float j = 0; j < total - 1; j++) {
       pushMatrix();
 
-      rotate (radians(j/2 + 110));
+      rotate (radians(j * 3 + 110));
 
-      if (j == 0 || j == total - 2){
-      stroke(0);
-      } else {
-        stroke(255, 0, 0, 100);
-      }
       line(0, 0, 250, 250);
-      
-      stroke(0);
-      
+
       popMatrix();
     }
     popMatrix();
@@ -66,7 +57,4 @@ class DrawLOS {
       LOSdirection = 3;
     }
   }
-  
-   void detectCatch(Char thePlayer) {
-   }
 }

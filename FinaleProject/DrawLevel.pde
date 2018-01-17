@@ -19,15 +19,9 @@ class DrawLevel {
 
   char tileType;
   char[][] tiles;
-  
-  PImage blank, corner, horizontal, vertical;
 
   //constructor-----------------------------------------------------
   DrawLevel() {
-    blank = loadImage("Art/Walls/Blank.png");
-    corner = loadImage("Art/Walls/Corner.png");
-    horizontal = loadImage("Art/Walls/Horizontal.png");
-    vertical = loadImage("Art/Walls/Vertical.png");
 
     gridDimension = 29;
 
@@ -80,9 +74,7 @@ class DrawLevel {
       for (int y = 0; y < rows; y++) {
         noStroke();
         if (tiles[x][y] == '|') {
-          fill(0, 0);
-          image(vertical,x * cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1 );
-          
+          fill(0);
           
           topLeftX[x] = x * cellWidth;
           topRightX[x] = x * cellWidth;
@@ -99,49 +91,15 @@ class DrawLevel {
                                                //HELP NEEDED
           //-----------------------------------------------------------------------------------------------------
         } else if ( tiles[x][y] == '-') {
-          fill(0, 0);
-          image(horizontal,x * cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1 );
-          
-          topLeftX[x] = x * cellWidth;
-          topRightX[x] = x * cellWidth;
-          botLeftX[x] = x * cellWidth;
-          botRightX[x] = x * cellWidth;
-          
-          topLeftY[y] = y * cellWidth;
-          topRightY[y] = y * cellWidth;
-          botLeftY[y] = y * cellWidth;
-          botRightY[y] = y * cellWidth;
+          fill(80);
         } else if ( tiles[x][y] == '=') {
-          fill(0, 0);
-          image(blank,x * cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1 );
-          
-          topLeftX[x] = x * cellWidth;
-          topRightX[x] = x * cellWidth;
-          botLeftX[x] = x * cellWidth;
-          botRightX[x] = x * cellWidth;
-          
-          topLeftY[y] = y * cellWidth;
-          topRightY[y] = y * cellWidth;
-          botLeftY[y] = y * cellWidth;
-          botRightY[y] = y * cellWidth;
+          fill(120);
         } else if ( tiles[x][y] == '+') {
-          fill(0, 0);
-          image(corner,x * cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1 );
-          
-          topLeftX[x] = x * cellWidth;
-          topRightX[x] = x * cellWidth;
-          botLeftX[x] = x * cellWidth;
-          botRightX[x] = x * cellWidth;
-          
-          topLeftY[y] = y * cellWidth;
-          topRightY[y] = y * cellWidth;
-          botLeftY[y] = y * cellWidth;
-          botRightY[y] = y * cellWidth;
+          fill(50);
         } else if ( tiles[x][y] == 'S') {
-          fill(0 ,0);
-          
+          fill(200);
         } else {
-          fill(170);
+          fill(255, 0);
         }
         rect(x*cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1);
       }
