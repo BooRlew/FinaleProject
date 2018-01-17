@@ -7,6 +7,7 @@
 
 class DrawLOS {
   //data-----------------------------------------------
+  
   ArrayList<Line> theLines = new ArrayList<Line>();
 
   int LOSdirection;

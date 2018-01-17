@@ -25,7 +25,7 @@ class Char {
     charSpeed = 0.95;
     tempSpeed = charSpeed;
     
-    sprintTime = 100;
+    sprintTime = 10000;
   }
 
   //behaviour-----------------------------------------------------

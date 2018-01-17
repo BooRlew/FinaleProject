@@ -2,14 +2,19 @@ class DrawLevel {
   //data-----------------------------------------------------
   int[][] grid;
   int cols, rows;
+  float gridDimension;
 
-  float[] northSide;
-  float[] southSide;
-  float[] eastSide;
-  float[] westSide;
+  float[] topLeftX;
+  float[] topRightX;
+  float[] botLeftX;
+  float[] botRightX;
+  
+  float[] topLeftY;
+  float[] topRightY;
+  float[] botLeftY;
+  float[] botRightY;
 
   float cellWidth, cellHeight;
-  float gridDimension;
   float startX, startY;
   float eStartX, eStartY;
   float keyX, keyY;
@@ -35,10 +40,17 @@ class DrawLevel {
 
     tiles = new char[cols][rows];
     
-    topLeft = new float[gridDimension];
-    topRight = new float[gridDimension];
-    botLeft = new float[gridDimension];
-    botRight = new float[gridDimension];
+    int temp = int(gridDimension);
+
+    topLeftX = new float[temp];
+    topRightX = new float[temp];
+    botLeftX = new float[temp];
+    botRightX = new float[temp];
+    
+    topLeftY = new float[temp];
+    topRightY = new float[temp];
+    botLeftY = new float[temp];
+    botRightY = new float[temp];
 
     loadLevel();
 
@@ -75,9 +87,17 @@ class DrawLevel {
         noStroke();
         if (tiles[x][y] == '|') {
           fill(0);
-          //-----------------------------------------------------------------------------------------------------
-                                               //HELP NEEDED
-          //-----------------------------------------------------------------------------------------------------
+          
+          topLeftX[x] = x * cellWidth;
+          topRightX[x] = x * cellWidth;
+          botLeftX[x] = x * cellWidth;
+          botRightX[x] = x * cellWidth;
+          
+          topLeftY[y] = y * cellWidth;
+          topRightY[y] = y * cellWidth;
+          botLeftY[y] = y * cellWidth;
+          botRightY[y] = y * cellWidth;
+          
         } else if ( tiles[x][y] == '-') {
           fill(80);
         } else if ( tiles[x][y] == '=') {
@@ -95,7 +115,7 @@ class DrawLevel {
   }
 
   void loadLevel() {
-    levelToLoad = "Level/lvl-1.txt";
+    levelToLoad = "Level/lvl-2.txt";
 
     String lines[] = loadStrings(levelToLoad);
     for (int y=0; y < gridDimension; y++) {
