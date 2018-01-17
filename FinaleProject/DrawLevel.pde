@@ -35,10 +35,10 @@ class DrawLevel {
 
     tiles = new char[cols][rows];
     
-    topLeft = new float[gridDimension];
-    topRight = new float[gridDimension];
-    botLeft = new float[gridDimension];
-    botRight = new float[gridDimension];
+    //topLeft = new float[gridDimension];
+    //topRight = new float[gridDimension];
+    //botLeft = new float[gridDimension];
+    //botRight = new float[gridDimension];
 
     loadLevel();
 
@@ -76,15 +76,15 @@ class DrawLevel {
         if (tiles[x][y] == '|') {
           fill(0);
           
-          topLeftX[x] = x * cellWidth;
-          topRightX[x] = x * cellWidth;
-          botLeftX[x] = x * cellWidth;
-          botRightX[x] = x * cellWidth;
+          //topLeftX[x] = x * cellWidth;
+          //topRightX[x] = x * cellWidth;
+          //botLeftX[x] = x * cellWidth;
+          //botRightX[x] = x * cellWidth;
           
-          topLeftY[y] = y * cellWidth;
-          topRightY[y] = y * cellWidth;
-          botLeftY[y] = y * cellWidth;
-          botRightY[y] = y * cellWidth;
+          //topLeftY[y] = y * cellWidth;
+          //topRightY[y] = y * cellWidth;
+          //botLeftY[y] = y * cellWidth;
+          //botRightY[y] = y * cellWidth;
           
           fill(0);
           //-----------------------------------------------------------------------------------------------------
