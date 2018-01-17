@@ -2,19 +2,14 @@ class DrawLevel {
   //data-----------------------------------------------------
   int[][] grid;
   int cols, rows;
-  float gridDimension;
 
-  float[] topLeftX;
-  float[] topRightX;
-  float[] botLeftX;
-  float[] botRightX;
-  
-  float[] topLeftY;
-  float[] topRightY;
-  float[] botLeftY;
-  float[] botRightY;
+  float[] northSide;
+  float[] southSide;
+  float[] eastSide;
+  float[] westSide;
 
   float cellWidth, cellHeight;
+  float gridDimension;
   float startX, startY;
   float eStartX, eStartY;
   float keyX, keyY;
@@ -46,17 +41,10 @@ class DrawLevel {
 
     tiles = new char[cols][rows];
     
-    int temp = int(gridDimension);
-
-    topLeftX = new float[temp];
-    topRightX = new float[temp];
-    botLeftX = new float[temp];
-    botRightX = new float[temp];
-    
-    topLeftY = new float[temp];
-    topRightY = new float[temp];
-    botLeftY = new float[temp];
-    botRightY = new float[temp];
+    //topLeft = new float[gridDimension];
+    //topRight = new float[gridDimension];
+    //botLeft = new float[gridDimension];
+    //botRight = new float[gridDimension];
 
     loadLevel();
 
@@ -96,16 +84,20 @@ class DrawLevel {
           image(vertical,x * cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1 );
           
           
-          topLeftX[x] = x * cellWidth;
-          topRightX[x] = x * cellWidth;
-          botLeftX[x] = x * cellWidth;
-          botRightX[x] = x * cellWidth;
+          //topLeftX[x] = x * cellWidth;
+          //topRightX[x] = x * cellWidth;
+          //botLeftX[x] = x * cellWidth;
+          //botRightX[x] = x * cellWidth;
           
-          topLeftY[y] = y * cellWidth;
-          topRightY[y] = y * cellWidth;
-          botLeftY[y] = y * cellWidth;
-          botRightY[y] = y * cellWidth;
+          //topLeftY[y] = y * cellWidth;
+          //topRightY[y] = y * cellWidth;
+          //botLeftY[y] = y * cellWidth;
+          //botRightY[y] = y * cellWidth;
           
+          fill(0);
+          //-----------------------------------------------------------------------------------------------------
+                                               //HELP NEEDED
+          //-----------------------------------------------------------------------------------------------------
         } else if ( tiles[x][y] == '-') {
           fill(0, 0);
           image(horizontal,x * cellWidth, y*cellHeight, cellWidth + 1, cellHeight + 1 );
