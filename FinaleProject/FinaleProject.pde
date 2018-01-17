@@ -33,24 +33,23 @@ void draw() {
   character();
 }
 
-void finish(){
+void finish() {
   exit.display(player, Key);
-  
 }
 
 void character() {
   player.move(level);
   player.display();
-  
+
   sprint.display(player);
 }
 
 void enemy() {
-  enemy.move(level);
-  enemy.display();
-  
   LoS.direction(enemy);
   LoS.display(enemy);
+
+  enemy.move(level);
+  enemy.display();
 }
 
 void keyPressed() {
@@ -67,8 +66,8 @@ void keyPressed() {
     player.movingLeft = true;
   }
   if (key == CODED) {
-    if (keyCode == SHIFT){
-      player.isSprint = true; 
+    if (keyCode == SHIFT) {
+      player.isSprint = true;
     }
   }
 }
@@ -87,8 +86,8 @@ void keyReleased() {
     player.movingLeft = false;
   }
   if (key == CODED) {
-    if (keyCode == SHIFT){
-      player.isSprint = false; 
+    if (keyCode == SHIFT) {
+      player.isSprint = false;
     }
   }
 }
