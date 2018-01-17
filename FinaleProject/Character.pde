@@ -22,10 +22,10 @@ class Char {
     charWidth = currentLevel.cellWidth;
     charHeight = currentLevel.cellHeight;
 
-    charSpeed = 0.95;
+    charSpeed = 0.95 * 2;
     tempSpeed = charSpeed;
     
-    sprintTime = 10000;
+    sprintTime = 100;
   }
 
   //behaviour-----------------------------------------------------
